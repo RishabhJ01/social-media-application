@@ -1,0 +1,183 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+	background: #f5f5f5;
+	color: #111111;
+	min-width: 230px;
+	max-width: 550px;
+	margin: 0 auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 300;
+}
+
+.hidden {
+	display: none;
+}
+
+.todoapp {
+	background: #fff;
+	margin: 130px 0 40px 0;
+	position: relative;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.todoapp input::-webkit-input-placeholder {
+	font-style: italic;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.todoapp input::-moz-placeholder {
+	font-style: italic;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.todoapp input::input-placeholder {
+	font-style: italic;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.4);
+}
+
+.todoapp h1 {
+	position: absolute;
+	top: -140px;
+	width: 100%;
+	font-size: 80px;
+	font-weight: 200;
+	text-align: center;
+	color: #b83f45;
+	-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
+}
+
+.post-body{
+	width: 100%;
+	background-color: #ffffff;
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+}
+
+.post-body .by{
+	font-size: 16px;
+	font-weight: 500;
+	font-style: italic;
+}
+
+.post-body .title{
+	font-size: 24px;
+	margin: 1rem 0;
+	font-weight: 600;
+}
+
+.post-body .body{
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.25;
+}
+
+.post-body .likes{
+	margin-top: 0.5rem;
+	display: flex;
+}
+.post-body .likes form, .post-body .likes div{
+	display: flex;
+	margin-right: 0.5rem;
+}
+.post-body .likes form button, .post-body .likes div a{
+	margin-right: 0.25rem;
+	display: flex;
+	align-items: center;
+	font-weight: 400;
+}
+
+.post-body .likes form button img, .post-body .likes div a img{
+	height: 1rem;
+	cursor: pointer;
+}
+.comment{
+	margin-top: 1rem;
+}
+
+.comment form{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.comment-div{
+	width: 100%;
+	margin-right: 2rem;
+	border-radius: 10px;
+	padding: 0.25rem;
+	border: 1px solid #999999
+}
+.comment-box{
+	width: 100%;
+	margin-right: 1rem;
+	border: none;
+	outline: none;
+}
+
+.comment-box{
+	resize: none;
+}
+
+.comments-section{
+	padding: 1rem;
+	background-color: white;
+	width: 100%;
+	border-radius: 0 0 1rem 1rem;
+}
+
+.post-body-comments-section{
+	border-radius: 1rem 1rem 0 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.empty{
+	font-weight: 500;
+	font-style: italic;
+	font-size: 16px;
+}
+
+.all-comments{
+	margin-top: 0.5rem;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.comment-by{
+	font-weight: 500;
+	font-style: italic;
+}
+
+.comment-body{
+	margin-left: 1.5rem;
+}

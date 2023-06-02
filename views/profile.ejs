@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login System</title>
+		<link rel="stylesheet" href="/css/index.css">
+		<link rel="stylesheet" href="/css/app.css">
+		<link rel="stylesheet" href="/css/profile.css">
+	</head>
+	<body>
+        <section class="todoapp">
+			<nav class="nav">
+				<ul>
+                    <li>
+						<a href="/" class="homepage">Homepage</a>
+					</li>
+                    <li>
+						<a href="/timeline" class="timeline">Timeline</a>
+					</li>
+					<li>
+						<a href="/post" class="post">Create a Post</a>
+					</li>
+					<li>
+						<form action="/logout" method="post">
+							<button class="logout" type="submit">Sign out</button>
+						</form>
+					</li>
+				</ul>
+			</nav>
+		</section>
+        <div class="card">
+			<% if (user.user_image.length > 0){ %>
+				<img src="<%= user.user_image %>" alt="avatar" class="user-avatar">
+			<% } else { %>
+				<form action="/<%= user.username %>" method="post" id="avatar-form" enctype="multipart/form-data">
+					<input type="file" name="user-image" class="user-image" id="user-image">
+				</form>
+			<% } %>
+			
+			
+			<h1><%= user.first_name %> <%= user.last_name %></h1>
+			<div style="margin-top: 2rem; width: 100%">
+				<div class="about">
+					<div style="width: 50%">Username</div> <div style="width: 50%"><%= user.username %></div> 
+				</div>
+				<div class="about">
+					<div style="width: 50%">From</div> <div style="width: 50%"><%= user.city %>, <%= user.state %></div> 
+				</div>
+				<div class="about">
+					<div style="width: 50%">Region</div> <div style="width: 50%"><%= user.country %></div>
+				</div>
+				<div class="about">
+					<div style="width: 50%">Joined at</div> <div style="width: 50%"><%= user.createdAt %></div>
+				</div>
+			</div>
+		</div>
+            
+	</body>
+	<script>
+		document.getElementById("user-image").onchange = function(){
+			document.getElementById("avatar-form").submit();
+		}
+	</script>
+</html>

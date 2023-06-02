@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login System</title>
+		<link rel="stylesheet" href="/css/index.css">
+		<link rel="stylesheet" href="/css/app.css">
+		<script src="/javascript/functions.js"></script>
+	</head>
+	<body>
+		<section class="todoapp">
+			<nav class="nav">
+				<ul>
+					<li>
+						<a href="/<%= user.username %>" class="user"><%= user.username %></a>
+					</li>
+					<li>
+						<a href="/timeline" class="timeline">Timeline</a>
+					</li>
+					<li>
+						<a href="/post" class="post">Create a Post</a>
+					</li>
+					<li>
+						<form action="/logout" method="post">
+							<button class="logout" type="submit">Sign out</button>
+						</form>
+					</li>
+				</ul>
+			</nav>
+		</section>
+		<section>
+			<div class="post-body post-body-comments-section" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+				<div class="by">
+					<%= selectedPost.postbyuser %> shares something new...
+				</div>
+				<div class="title"><%= selectedPost.subject %></div>
+				<div class="body"><%= selectedPost.context %></div>
+				<div class="likes" id="<%= selectedPost._id %>">
+					<form onsubmit="likeDislike('<%= selectedPost._id %>')" name="LIKE">
+						<button type="submit">
+							<img src="/images/thumbs-up.svg" alt="Like" id="like">
+						</button>
+						<span>
+							<%= selectedPost.like.length %>
+						</span>
+					</form>
+					<form onsubmit="likeDislike('<%= selectedPost._id %>')" name="DISLIKE">
+						<button type="submit">
+							<img src="/images/thumbs-down.svg" alt="Dislike">
+						</button>
+						<span>
+							<%= selectedPost.dislike.length %>
+						</span>
+					</form>
+				</div>
+				<div class="comment">
+					<form onsubmit="comment('<%= selectedPost._id %>')">
+						<div class="comment-div" value="comment">
+							<textarea class="comment-box" name="body"></textarea>
+						</div>
+						<button type="submit" style="cursor: pointer"><img src="/images/send.svg" alt=""></button>
+					</form>
+				</div>
+			</div>
+			<div class="comments-section">
+				<div>
+					<h3>Comments...</h3>
+				</div>
+				<% if (selectedPost.comment.length === 0) { %>
+					<div>
+						<span class="empty">Be the first one to comment</span>
+					</div>
+				<% } else { %>
+					<div class="all-comments">
+						<% selectedPost.comment.forEach((comment) => { %>
+							<div style="margin-bottom: 1rem">
+								<span class="comment-by">By <%= comment.commentByUser %> - </span>
+								<div class="comment-body">
+									<%= comment.body %>
+								</div>
+							</div>
+						<% }) %>
+					</div>
+				<% } %>
+			</div>
+		</section>
+	</body>
+</html>

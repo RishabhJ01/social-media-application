@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login System</title>
+		<link rel="stylesheet" href="/css/index.css">
+		<link rel="stylesheet" href="/css/app.css">
+		<script src="/javascript/functions.js"></script>
+	</head>
+	<body>
+		<section class="todoapp">
+			<nav class="nav">
+				<ul>
+					<li>
+						<a href="/<%= user.username %>" class="user"><%= user.username %></a>
+					</li>
+                    <li>
+						<a href="/" class="homepage">Homepage</a>
+					</li>
+					<li>
+						<a href="/post" class="post">Create a Post</a>
+					</li>
+					<li>
+						<form action="/logout" method="post">
+							<button class="logout" type="submit">Sign out</button>
+						</form>
+					</li>
+				</ul>
+			</nav>
+		</section>
+		<section>
+			<% posts.forEach((post,i) => { %>
+				<div class="post-body">
+					<div class="by">
+						<%= post.postbyuser %> shares something new...
+					</div>
+					<div class="title"><%= post.subject %></div>
+					<div class="body"><%= post.context %></div>
+					<div class="likes" id="<%= post._id %>">
+						<form onsubmit="likeDislike('<%= post._id %>')" name="LIKE">
+							<button type="submit">
+								<img src="/images/thumbs-up.svg" alt="Like" id="like">
+							</button>
+							<span>
+								<%= post.like.length %>
+							</span>
+						</form>
+						<form onsubmit="likeDislike('<%= post._id %>')" name="DISLIKE">
+							<button type="submit">
+								<img src="/images/thumbs-down.svg" alt="Dislike">
+							</button>
+							<span>
+								<%= post.dislike.length %>
+							</span>
+							
+						</form>
+						<div>
+							<a href="/<%= post.id %>">
+								<img src="/images/comment.svg" alt="comment">
+							</a>
+							<%= post.comment.length %>
+						</div>
+					</div>
+				</div>
+			<% }) %>
+		</section>
+	</body>
+</html>

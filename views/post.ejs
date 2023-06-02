@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login System</title>
+		<link rel="stylesheet" href="/css/index.css">
+		<link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="/css/post.css">
+	</head>
+	<body>
+		<section class="todoapp">
+			<nav class="nav">
+				<ul>
+					<li>
+						<a href="/<%= user.username %>" class="user"><%= user.username %></a>
+					</li>
+                    <li>
+						<a href="/" class="homepage">Homepage</a>
+					</li>
+					<li>
+						<a href="/timeline" class="timeline">Timeline</a>
+					</li>
+					<li>
+						<form action="/logout" method="post">
+							<button class="logout" type="submit">Sign out</button>
+						</form>
+					</li>
+				</ul>
+			</nav>
+		</section>
+		<section class="post-section">
+			<h1 class="user">What's on your mind</h1>
+            <form class="post" action="/post/submit" method="post">
+                <section class="form">
+					<input id="subject" name="subject" type="text" placeholder="Title"required autofocus>
+				</section>
+                <section class="form">
+                    <textarea id="context" name="context" placeholder="Write your thoughts here..." rows="8"></textarea>
+                </section>
+                <button type="submit">Post</button>
+            </form>
+		</section>
+	</body>
+</html>

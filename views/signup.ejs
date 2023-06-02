@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login System</title>
+		<link rel="stylesheet" href="/css/index.css">
+		<link rel="stylesheet" href="/css/login.css">
+	</head>
+	<body>
+		<section class="prompt">
+			<h3>Login System</h3>
+			<h1>Sign up</h1>
+			<form action="/signup" method="post">
+				<section>
+					<label for="username">Username</label>
+					<input id="username" name="username" type="text" autocomplete="username" required>
+				</section>
+				<section>
+					<label for="new-password">Password</label>
+					<input id="new-password" name="password" type="password" autocomplete="new-password" required>
+				</section>
+				<section class="merge">
+					<section style="margin-right: 0.5rem;">
+						<label for="first_name">First Name</label>
+						<input type="text" id="first_name" name="first_name" autocomplete="first_name" required>
+					</section>
+					<section style="margin-left: 0.5rem;">
+						<label for="last_name">Last Name</label>
+						<input type="text" id="last_name" name="last_name" autocomplete="last_name" required>
+					</section>
+				</section>
+				<section class="merge">
+					<section style="margin-right: 0.5rem;">
+						<label for="city">City</label>
+						<input type="text" id="city" name="city" autocomplete="city" required>
+					</section>
+					<section style="margin-left: 0.5rem;">
+						<label for="state">State</label>
+						<input type="text" id="state" name="state" autocomplete="state" required>
+					</section>
+				</section>
+				<section>
+					<label for="country">Country</label>
+					<input type="text" id="country" name="country" autocomplete="country" required>
+				</section>
+				<button type="submit">Sign up</button>
+			</form>
+			<hr>
+			<p class="help">Already have an account? <a href="/login">Sign in</a></p>
+		</section>
+	</body>
+</html>
