@@ -37,8 +37,11 @@ app.use(session({
 app.use(passport.initialize());
 
 app.use(passport.session());
+const username = process.env.MONGO_USER;
+const password = process.env.MONGO_PASS;
+const cluster = process.env.MONGO_CLUSTER
 
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true}, (err) => {
+mongoose.connect(`mongodb+srv://${username}:${password}@${cluster}/?retryWrites=true&w=majority`, {useNewUrlParser: true}, (err) => {
   if(err) throw err;
   console.log("database connected");
 })
